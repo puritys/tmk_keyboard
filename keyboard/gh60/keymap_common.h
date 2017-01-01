@@ -28,6 +28,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "debug.h"
 #include "keymap.h"
 
+void action_function(keyrecord_t *record, uint8_t id, uint8_t opt);
 
 /* GH60 keymap definition macro
  * K2C, K31 and  K3C are extra keys for ISO
