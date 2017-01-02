@@ -18,7 +18,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <avr/io.h>
 #include "stdint.h"
 #include "led.h"
-
+#include "keymap_common.h"
+#define USB_LED_CAPS_LOCK 1
 
 //void led_set(uint8_t usb_led)
 //{
@@ -34,6 +35,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // my test
 void led_set(uint8_t usb_led)
 {
+
+        dprintf("usb_leb  USB_LED_CAPS_LOCK = %d usb_led = %d \n", USB_LED_CAPS_LOCK, usb_led);
    if (usb_led & (1 << USB_LED_CAPS_LOCK)) {
         DDRB  |=  (1 << 2);
         PORTB &= ~(1 << 2);
