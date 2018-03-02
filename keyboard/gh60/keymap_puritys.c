@@ -4,7 +4,17 @@
 // GRV = ` 
 
 const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-    /* 0: Normal/Default case */
+
+    /* 0: My Customized 
+    */
+    KEYMAP_ANSI(
+        ESC, 1,   2,   3,   4,   5,   6,   7,   8,   9,   0,   MINS,EQL, BSPC, \
+        TAB, Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P,   LBRC,RBRC,BSLS, \
+        FN0,A,   S,   D,   F,   G,   H,   J,   K,   L,   SCLN,QUOT,     ENT,  \
+        FN6,Z,   X,   C,   V,   B,   N,   M,   COMM,DOT, SLSH,          FN7, \
+        LCTL,LGUI,LALT,          SPC,                     FN0, FN1, APP, RCTL),
+
+    /* 1: Normal/Default case */
     KEYMAP_ANSI(
         ESC, 1,   2,   3,   4,   5,   6,   7,   8,   9,   0,   MINS,EQL, BSPC, \
         TAB, Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P,   LBRC,RBRC,BSLS, \
@@ -12,16 +22,7 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         FN6,Z,   X,   C,   V,   B,   N,   M,   COMM,DOT, SLSH,          FN7, \
         LCTL,LGUI,LALT,          SPC,                     RALT,FN0, APP, RCTL),
 
-    /* 1: My Customized 
-    */
-    KEYMAP_ANSI(
-        ESC, 1,   2,   3,   4,   5,   6,   7,   8,   9,   0,   MINS,EQL, BSPC, \
-        TAB, Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P,   LBRC,RBRC,BSLS, \
-        FN0,A,   S,   D,   F,   G,   H,   J,   K,   L,   SCLN,QUOT,     ENT,  \
-        FN6,Z,   X,   C,   V,   B,   N,   M,   COMM,DOT, SLSH,          FN7, \
-        LCTL,LGUI,LALT,          SPC,                     FN0, RALT, APP, RCTL),
-
-    /* 2: Normal with shift */
+    /* 2: Normal only for testing */
     KEYMAP_ANSI(
         2, 1,   2,   3,   4,   5,   6,   7,   8,   9,   0,   MINS,EQL, BSPC, \
         TAB, Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P,   LBRC,RBRC,BSLS, \
@@ -58,22 +59,19 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      */
     KEYMAP_ANSI(
         GRV, F1,  F2,  F3,  F4,  F5,  F6,  F7,  F8,  F9,  F10, F11, F12, DEL, \
-        CAPS,FN11, TRNS, TRNS,TRNS,TRNS,TRNS,PGUP,FN12,PGDN,PSCR,TRNS,INS, TRNS,  \
-        FN0,FN3,FN4,FN11,TRNS,TRNS,HOME,FN14,FN13,FN15,END, TRNS,      TRNS, \
-        TRNS,TRNS, TRNS,TRNS,FN6,TRNS,TRNS,TRNS,PGUP,PGDN,TRNS,           TRNS, \
+        TRNS,TRNS, TRNS, ENT,TRNS,TRNS,TRNS,PGUP,FN12,PGDN,PSCR,TRNS,INS, TRNS,  \
+        FN0,TRNS,TRNS,DEL,TRNS,TRNS,HOME,FN14,FN13,FN15,END, TRNS,      TRNS, \
+        TRNS,TRNS, TRNS,TRNS,TRNS,BSPC,TRNS,TRNS,PGUP,PGDN,TRNS,           TRNS, \
         TRNS,TRNS,TRNS,          TRNS,                     TRNS,TRNS,TRNS,TRNS),
     /* 
      7 Layout selector
-
-     # default : LSFT+RSFT+num
-     LSFT+RSFT+0 = layout 0 (Normal)
-     LSFT+RSFT+1 = layout 1 (My Customized)
-     LSFT+RSFT+2 = layout 2 useless 
+     Right FN + 1 = layout 0 (My Customized)
+     Right FN + 2 = layout 1 (Normal)
      */
     KEYMAP_ANSI(
-        TRNS, FN1, FN2, FN3, FN4,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,FN0, \
-        TRNS,FN5, TRNS, TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS, \
-        TRNS,TRNS,TRNS,TRNS, TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,     TRNS, \
+        TRNS, FN3, FN4, FN11, TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS, \
+        TRNS,TRNS, TRNS, TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS, \
+        CAPS,TRNS,TRNS,TRNS, TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,     TRNS, \
         TRNS,TRNS,TRNS,TRNS, TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,          TRNS, \
         TRNS,TRNS,TRNS,          TRNS,                    TRNS,TRNS,TRNS,TRNS),
 };
@@ -81,7 +79,7 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 const action_t PROGMEM fn_actions[] = {
     /* Poker Layout */
     [0] = ACTION_LAYER_MOMENTARY(6),// To FN layout 
-    [1] = ACTION_LAYER_TOGGLE(0),
+    [1] = ACTION_LAYER_MOMENTARY(7),// To Layout set
     [2] = ACTION_LAYER_TOGGLE(1),
     [3] = ACTION_DEFAULT_LAYER_SET(0),  //layout 0
     [4] = ACTION_DEFAULT_LAYER_SET(1),  //  layout 1
@@ -141,11 +139,11 @@ void action_function(keyrecord_t *record, uint8_t id, uint8_t opt)
     //if (record->tap.interrupted) ;
     static uint8_t mod = 0;
     static uint8_t key;
-    dprintf("gg1 opt =  %d \n",  opt);
+    //dprintf("gg1 opt =  %d \n",  opt);
     switch (id) {
         case MY_PG_CONTROL:
             mod = get_mods();
-            dprintf("mod =  %d \n",  mod);
+            //dprintf("mod =  %d \n",  mod);
             if (record->event.pressed) {
                 switch (opt) {
                     case 1:
@@ -167,7 +165,13 @@ void action_function(keyrecord_t *record, uint8_t id, uint8_t opt)
                     add_key(key);
                     send_keyboard_report();
                     add_mods(mod);   // return Ctrl but not sent
-                }  else {
+                }  else if (mod &  KC_LALT) {
+                    // Left Alt + Right Alt + ijkl map to Left Alt + arrow
+                    del_mods(KC_RALT);
+                    add_key(key);
+                    send_keyboard_report();
+                    add_mods(KC_RALT);   // return KC_RALT but not sent
+                } else {
                     add_key(key);
                     send_keyboard_report();
                 }
