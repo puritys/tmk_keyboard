@@ -1,8 +1,3 @@
-#define BACKLIGHT_ENABLE   1
-#define BACKLIGHT_DISABLE  2
-#define BACKLIGHT_INCREASE 3
-#define BACKLIGHT_DECREASE 4
-
 
 enum macro_id {
     MY_PASTE,

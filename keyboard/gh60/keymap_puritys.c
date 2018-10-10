@@ -20,15 +20,15 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         TAB, Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P,   LBRC,RBRC,BSLS, \
         FN0,A,   S,   D,   F,   G,   H,   J,   K,   L,   SCLN,QUOT,     ENT,  \
         FN6,Z,   X,   C,   V,   B,   N,   M,   COMM,DOT, SLSH,          FN7, \
-        LCTL,LGUI,LALT,          SPC,                     RALT,FN0, APP, RCTL),
+        LCTL,LGUI,LALT,          SPC,                     RALT,FN1, APP, RCTL),
 
     /* 2: Normal only for testing */
     KEYMAP_ANSI(
-        2, 1,   2,   3,   4,   5,   6,   7,   8,   9,   0,   MINS,EQL, BSPC, \
-        TAB, Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P,   LBRC,RBRC,BSLS, \
-        CAPS,A,   S,   D,   F,   G,   H,   J,   K,   L,   SCLN,QUOT,     ENT,  \
+        2, FN9,   FN10,   FN11,   4,   5,   6,   7,   8,   9,   0,   MINS,EQL, BSPC, \
+        TAB, Q,   W,   E,   R,   T,   Y,   MS_BTN1,  MS_UP,   O,   P,   LBRC,RBRC,BSLS, \
+        CAPS,A,   S,   D,   F,   G,   H,   MS_LEFT,   MS_DOWN,   MS_RIGHT,   SCLN,QUOT,     ENT,  \
         LSFT,Z,   X,   C,   V,   B,   N,   M,   COMM,DOT, SLSH,          RSFT, \
-        LCTL,LGUI,LALT,          SPC,                     FN0,FN0, APP, RCTL),
+        LCTL,LGUI,LALT,          SPC,                     FN0,FN1, APP, RCTL),
 
     /* 3: useless */
     KEYMAP_ANSI(
@@ -36,7 +36,7 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         TAB, Q,   D,   R,   W,   B,   J,   F,   U,   P,   SCLN,LBRC,RBRC,BSLS, \
         FN0,A,   S,   H,   T,   G,   Y,   N,   E,   O,   I,   QUOT,     ENT,  \
         LSFT,Z,   X,   M,   C,   V,   K,   L,   COMM,DOT, SLSH,          RSFT, \
-        LCTL,LGUI,LALT,          SPC,                     FN0, RGUI,APP, RCTL),
+        LCTL,LGUI,LALT,          SPC,                     RALT, FN1,APP, RCTL),
 
     /* 4: Shift layout */
     KEYMAP_ANSI(
@@ -69,7 +69,7 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      Right FN + 2 = layout 1 (Normal)
      */
     KEYMAP_ANSI(
-        TRNS, FN3, FN4, FN11, TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS, \
+        TRNS, FN3, FN4, FN5, TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS, \
         TRNS,TRNS, TRNS, TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS, \
         CAPS,TRNS,TRNS,TRNS, TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,     TRNS, \
         TRNS,TRNS,TRNS,TRNS, TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,          TRNS, \
@@ -81,17 +81,22 @@ const action_t PROGMEM fn_actions[] = {
     [0] = ACTION_LAYER_MOMENTARY(6),// To FN layout 
     [1] = ACTION_LAYER_MOMENTARY(7),// To Layout set
     [2] = ACTION_LAYER_TOGGLE(1),
-    [3] = ACTION_DEFAULT_LAYER_SET(0),  //layout 0
-    [4] = ACTION_DEFAULT_LAYER_SET(1),  //  layout 1
-    [5] = ACTION_LAYER_MOMENTARY(5),
+//    [3] = ACTION_DEFAULT_LAYER_SET(0),  //layout 0
+//    [4] = ACTION_DEFAULT_LAYER_SET(1),  //  layout 1
+    [3] = ACTION_LAYER_SET(0, ON_PRESS),  //layout 0
+    [4] = ACTION_LAYER_SET(1, ON_PRESS),  //  layout 1
+    [5] = ACTION_LAYER_SET(2, ON_PRESS),  //  layout 2
     [6] = ACTION_LAYER_MODS(4, MOD_LSFT),
     [7] = ACTION_LAYER_MODS(4, MOD_RSFT),
     //[8] = ACTION_LAYER_MODS(5, MOD_LSFT),
     //[8] = ACTION_LAYER_MOMENTARY(5),
     //[8] = ACTION_FUNCTION(MY_LCTL),
-    [9] = ACTION_FUNCTION(BACKLIGHT_ENABLE),
-    [10] = ACTION_FUNCTION(BACKLIGHT_INCREASE),
-    [11] = ACTION_DEFAULT_LAYER_SET(2),  //  layout 2
+
+    // backlight setting
+    //[9] = ACTION_BACKLIGHT_TOGGLE(),
+    //[10] = ACTION_BACKLIGHT_INCREASE(),
+    //[11] = ACTION_BACKLIGHT_DECREASE(),
+
     [12] = ACTION_FUNCTION_OPT(MY_PG_CONTROL, 1),
     [13] = ACTION_FUNCTION_OPT(MY_PG_CONTROL, 2),
     [14] = ACTION_FUNCTION_OPT(MY_PG_CONTROL, 3),
@@ -183,6 +188,7 @@ void action_function(keyrecord_t *record, uint8_t id, uint8_t opt)
 
     }
 }
+
 
 
 
